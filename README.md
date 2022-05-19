@@ -5,7 +5,7 @@ This repository is meant for note-taking purposes only. If you decide to use it,
 ### Setting up the emulator
 To view the emulator, go to your chrome developer tools. There, you can pick different devices and sizes to see how your content would look on them.
 
-### 
+### .
 - A responsive website changes depending on the characteristics of the device, meaning that your responsive site needs to apply different styles for different devices.
 - 1CSS pixel per 2 hardware pixels
 - By adding the meta 'viewport' tag to the head element of the page, we tell the browser that we know what we're doing. We need to use the meta viewport 
@@ -26,7 +26,37 @@ roughly 40CSS pixels, so buttons should be at least 48/48 px. Also, make sure th
  - To add responsive styles, you need to include an additional style sheet in your page, with a media query. For example, if you want your site to react a different way
  when the screen width is at least 500px, you'd add a media attribute and set the value to screen and min-width to 500. example: ``` <link rel="stylesheet" media="screen and (min-width:500px)" href="over500.css">```
  Then in the over500.css file that you've linked you'd add whathever styling you want. You can test it out by increasing your site size in the devtools and seeing the changes.
- - There are 2 other ways you can apply media queries, you can embed them with @media tag, or import them. But avoid importing them at all costs.
+ - There are 2 other ways you can apply media queries, you can embed them with @media tag, example: ```@media screen and (min-width:500px) { body {color:blue} }```or import them. But avoid importing them at all costs.
+ - Linked css vs @media: with linked css, you have many small files, but many http requests. With @add media, you have bigger files but less http requests.
+ - The media queries used most often are min-width and max-width. DO NOT use min-device-width and max-device width. Those are based on the device size rather than the browser size.
+ - Finding the right breakpoints should be done based on the content rather than on specific devices. 
+ - To find breakpoints, once you have designed your website for the smallest viewport possible, Open up the devtools and increase the size of your page incrementally. Notice when the content looks like it needs a breakpoint.
+ - Here are the different size classes and breakpoints (not for reference, just to keep in mind because remember: choosing breakpoints should be done based on content)
+ <table>
+ <tr>
+  <th>Breakpoints</th>
+  <th>Screen sizes</th>
+ </tr>
+  <tr>
+  <td>Small: up to 640px</td>
+   <td>320x569, 360x640, 480x854</td>
+ </tr>
+ <tr>
+    <td>Medium:641px-1007px</td>
+   <td>960x540</td>
+ </tr>
+ <tr>
+    <td>Large:over 1008px</td>
+   <td>1024x640, 1366x768, 1920x1080</td>
+ </tr>
+</table>
+
+- With the grid fluid system, columns end up wrapping to the next line as the browser width starts getting smaller.
+- Flexbox is one of the most powerful tools that you can use for layout because of its ability to fill the space available (If an element has extra room around it it'll expand to fit, else it'll shrink). The default flex direction is row. By default, flex items fit in a single line. To change that add flex-wrap: wrap, which tells the browser that it's ok fot the elements to wrap to the next line. Another useful feature of flexbox is the ability to change the order of elements using the css <em>order</em> attribute.
+
 ### Definitions
 - Font-boosting : Browser takes the primary content on the page and scales it up for bigger screens.
 - Media queries provide easy logic for applying different styles based on device characteristics.
+- Breakpoint : the point at which the page changes layout.
+- Complext media queries test multiple characteristics rather than just 1.
+- 
