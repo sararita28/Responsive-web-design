@@ -58,9 +58,17 @@ roughly 40CSS pixels, so buttons should be at least 48/48 px. Also, make sure th
 <ul>
  <li>Column drop: at its narrowest viewport, each element simply stacks vertically. As screen gets wider, elements expand until the first breakpoint is hit. At the first breakpoint, 2 elements are now side by side and the 3rd is underneath. For the 3rd breakpoint, things reflow to a 3-column layout. Generally, once the columns hit a max size, instead of getting wider, margins are added to the left and right.</li>
  <li>Mostly fluid: tends to be a bit more grid-like than the column drop. At its narrowest viewport, the elements are stacks. As the layout gets wider, the grid pattern start to appear. When the layout hits its widest viewport, margins are added on the left and right.</li>
- <li>Off-canvas: The off-canvas places less frequently used content off screen, only showing them if the screen is large enough.</li>
+ <li>Off-canvas: The off-canvas places less frequently used content off screen, only showing them if the screen is large enough (like meny items for example). See more of this <a href="Responsive-patterns/Off-canvas.md">here</a></li>
 </ul>
-
+- Using the same <b>image</b> but using different resolutions depending on screen size is one of the most common way to make images responsive. The best way to do that is by using the source set attribute on an image tag. However, if your aim is to have a different crop of an image, you should use picture element. Picture element uses media queries to select which image to use.
+- To prevent <b>tables</b> from overflowing here are 3 of several options: hidden columns, 'no more table' technique, contained tables. 
+<ul>
+<li>With hidden columns, you only show the important stuff when the screen is small and display everything when the screen allows it not to overflow. The problem with that is that you are hiding content.</li>
+ <li>With the 'no more table' technique, below a certain viewport, the table is collapsed(it resembles more a long list as opposed to a table). The nice thing about this is that you can view all your content. To do this, you add a media query on all your elements to display as a block, you get rid of the tr (do that by positioning the content way off screen instead of having a display of none). You also want to add left padding to the td and set its position to relative. Finally, add a position absolution, left:6px, content:attr(data-th) to td:before</li>
+</ul>
+- An alternative to the previous point, to contain the table in the viewport is to wrap it in a div, set the width to 100%, and overflow-x to auto (this will simply add scrolling to your table.
+- <b>Fonts:</b> There's been a consensus about the ideal measure (i.e. length of a line of text) which is 65 chars per line. We need to take into account how people read when designing our app so it is a good idea to use measures as a factor when determining breakpoints. You must also make sure that fonts are big enough to read (at least 16px and a 1.2em line-height).
+- Minor breakpoints: in addition to major breakpoints, you also have minor breakpoints. 
 ### Definitions
 - Font-boosting : Browser takes the primary content on the page and scales it up for bigger screens.
 - Media queries provide easy logic for applying different styles based on device characteristics.
