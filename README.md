@@ -53,6 +53,13 @@ roughly 40CSS pixels, so buttons should be at least 48/48 px. Also, make sure th
 
 - With the grid fluid system, columns end up wrapping to the next line as the browser width starts getting smaller.
 - Flexbox is one of the most powerful tools that you can use for layout because of its ability to fill the space available (If an element has extra room around it it'll expand to fit, else it'll shrink). The default flex direction is row. By default, flex items fit in a single line. To change that add flex-wrap: wrap, which tells the browser that it's ok fot the elements to wrap to the next line. Another useful feature of flexbox is the ability to change the order of elements using the css <em>order</em> attribute.
+- There are a couple of responsive patterns that work well across pretty much any device: mostly fluid, layout shifter, column drop, off canvas.
+<img src="responsive patterns.png" />
+<ul>
+ <li>Column drop: at its narrowest viewport, each element simply stacks vertically. As screen gets wider, elements expand until the first breakpoint is hit. At the first breakpoint, 2 elements are now side by side and the 3rd is underneath. For the 3rd breakpoint, things reflow to a 3-column layout. Generally, once the columns hit a max size, instead of getting wider, margins are added to the left and right.</li>
+ <li>Mostly fluid: tends to be a bit more grid-like than the column drop. At its narrowest viewport, the elements are stacks. As the layout gets wider, the grid pattern start to appear. When the layout hits its widest viewport, margins are added on the left and right.</li>
+ <li>Off-canvas: The off-canvas places less frequently used content off screen, only showing them if the screen is large enough.</li>
+</ul>
 
 ### Definitions
 - Font-boosting : Browser takes the primary content on the page and scales it up for bigger screens.
